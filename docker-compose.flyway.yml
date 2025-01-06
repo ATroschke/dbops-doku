@@ -1,0 +1,13 @@
+services:
+  flyway:
+    image: flyway/flyway:latest
+    container_name: flyway
+    entrypoint: ["/bin/sh", "-c"]
+    command: >
+      "echo 'Waiting for MariaDB to be ready...' &&
+      sleep 10 &&
+      flyway -url=jdbc:mysql://mariadb:3306/db -user=root -password=root migrate"
+    depends_on:
+      - mariadb
+    volumes:
+      - ./migrations:/flyway/sql

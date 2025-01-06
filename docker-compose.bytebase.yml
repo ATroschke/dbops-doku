@@ -1,0 +1,14 @@
+services:
+  bytebase:
+    image: bytebase/bytebase:latest
+    container_name: bytebase
+    ports:
+      - "8081:8080"
+    volumes:
+      - bytebase_data:/var/bytebase
+    command:
+      - --data /var/bytebase
+      - --host http://0.0.0.0
+
+volumes:
+  bytebase_data:
