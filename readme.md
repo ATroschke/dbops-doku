@@ -12,6 +12,31 @@ Diese Tools bieten außerdem eine bessere Integration in CI/CD-Pipelines, was di
 
 ---
 
+## SQLC
+
+Mit sqlc kann aus einem Schema und definierten SQL queries ein go interface generiert werden.
+
+Ein beispiel dazu liegt in `/sqlc`
+
+### SQL Installieren & nutzen
+
+#### via go install
+```
+go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
+```
+
+dann im `/sqlc` ordner:
+```
+sqlc generate
+```
+
+#### alternativ via docker
+```
+docker run --rm -v "%cd%/sqlc:/src" -w /src sqlc/sqlc generate
+```
+
+---
+
 ## 2. Flyway
 
 ### Funktionsweise
